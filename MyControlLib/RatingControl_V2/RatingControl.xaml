@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="MyControlLib.RatingControl_V2.RatingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             
+             xmlns:local="clr-namespace:MyControlLib.RatingControl_V2"             
+             xmlns:Converters="clr-namespace:MyControlLib.RatingControl_V2"
+             
+             mc:Ignorable="d"
+             d:DesignHeight="200"
+             d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance Type=local:RatingControl, IsDesignTimeCreatable=True}">
+
+
+
+    <Grid x:Name="LayoutRoot"
+            MouseMove="Spek_MouseMove"
+            MouseDown="Spek_MouseDown" MouseUp="Spek_MouseUp"
+            MouseEnter="Spek_MouseEnter" MouseLeave="Spek_MouseLeave">
+
+        <StackPanel Visibility="{Binding Path=Debug, Converter={Converters:VisibilityConverter}}" Background="Wheat">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="CanSave" Grid.Column="0"/>
+                <TextBlock Text="{Binding Path=CanSave}" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="IsEditing" Grid.Column="0"/>
+                <TextBlock Text="{Binding Path=IsEditing}" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Value" Grid.Column="0"/>
+                <TextBlock Text="{Binding Path=Value}" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="DisplayValue" Grid.Column="0"/>
+                <TextBlock Text="{Binding Path=DisplayValue}" Grid.Column="1"/>
+            </Grid>
+        </StackPanel>
+
+        <ItemsControl x:Name="Presenteer" ItemsSource="{Binding Path=RE_Coll}" Margin="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:RE_VM}">
+                    <Grid>
+                        <Border BorderBrush="Red" BorderThickness="1" Visibility="{
+                            Binding Path=Debug,
+                            Converter={Converters:VisibilityConverter}}"/>
+                        
+                        <local:RatingElement Value="{Binding Path=Value}" Data="{Binding Path=Data}"/>
+                    </Grid>                    
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

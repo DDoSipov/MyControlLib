@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="MyControlLib.RatingControl.MC_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyControlLib.RatingControl"
+             xmlns:RC="clr-namespace:MyControlLib.RatingControl.RatingCollection"
+             MinHeight="15"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type RC:RC_VM}">
+            <RC:RC_View/>
+        </DataTemplate>
+
+        <local:FillConverter x:Key="myFillConverter"/>
+        <local:VisibilityConverter x:Key="myVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <StackPanel x:Name="spek" Background="Wheat"
+        MouseMove="Spek_MouseMove"
+        MouseDown="Spek_MouseDown" MouseUp="Spek_MouseUp"
+        MouseEnter="Spek_MouseEnter" MouseLeave="Spek_MouseLeave">
+
+        <UniformGrid Rows="1" Visibility="{Binding Path=Debug, Converter={StaticResource myVisibilityConverter}}">
+            <TextBlock Text="CanSave" Foreground="{Binding Path=CanSave, Converter={StaticResource myFillConverter}}"/>
+            <TextBlock Text="CanEdit" Foreground="{Binding Path=CanEdit, Converter={StaticResource myFillConverter}}"/>
+            <TextBlock Text="{Binding Path=Value}"/>
+        </UniformGrid>
+        
+        <ContentPresenter Content="{Binding Path=RC_VM}"/>
+    </StackPanel>
+</UserControl>

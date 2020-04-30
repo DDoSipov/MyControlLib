@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="MyControlLib.RatingControl.RatingCollection.RC_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             xmlns:local="clr-namespace:MyControlLib.RatingControl.RatingCollection"
+             xmlns:RE="clr-namespace:MyControlLib.RatingControl.RatingElement"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type RE:RE_VM}">
+            <RE:RE_View/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <ItemsControl ItemsSource="{Binding Path=RE_VMs}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Rows="1"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+    </ItemsControl>
+</UserControl>
