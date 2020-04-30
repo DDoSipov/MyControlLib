@@ -25,7 +25,7 @@ namespace MyControlLib.RatingControl_V2
             if (value is double)
             {
                 if ((double)value == 1)
-                    return Brushes.Red;
+                    return Brushes.Gold;
                 else
                     return Brushes.Black;
             }
