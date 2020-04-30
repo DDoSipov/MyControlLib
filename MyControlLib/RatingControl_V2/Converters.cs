@@ -95,6 +95,11 @@ namespace MyControlLib.RatingControl_V2
         }
     }
 
+    /// <summary>
+    /// Converter from bool to visibility
+    /// true = visible
+    /// false = collapsed
+    /// </summary>
     public class VisibilityConverter : MarkupExtension, IValueConverter
     {
         private static VisibilityConverter _converter = null;
