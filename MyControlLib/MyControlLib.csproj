@@ -48,7 +48,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyLabeledTextBox.xaml.cs">
+    <Compile Include="MyLabeledTextBox\MyLabeledTextBox.xaml.cs">
       <DependentUpon>MyLabeledTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="RatingControl\MouseControl\MC_Model.cs" />
@@ -88,7 +88,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MyLabeledTextBox.xaml">
+    <Page Include="MyLabeledTextBox\MyLabeledTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

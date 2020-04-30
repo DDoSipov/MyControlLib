@@ -6,6 +6,11 @@ using System.Windows.Markup;
 
 namespace MyControlLib.RatingControl_V2
 {
+    /// <summary>
+    /// Converter for filling from bool
+    /// true = red
+    /// false = black
+    /// </summary>
     public class FillConverter : MarkupExtension, IValueConverter
     {
         private static FillConverter _converter = null;
