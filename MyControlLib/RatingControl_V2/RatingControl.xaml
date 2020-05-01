@@ -11,15 +11,16 @@
              mc:Ignorable="d"
              d:DesignHeight="200"
              d:DesignWidth="300"
-             d:DataContext="{d:DesignInstance Type=local:RatingControl, IsDesignTimeCreatable=True}">
-
-
-
-    <Grid x:Name="LayoutRoot"
+             d:DataContext="{d:DesignInstance Type=local:RatingControl, IsDesignTimeCreatable=True}"
+             
+               Background="Transparent"
             MouseMove="Spek_MouseMove"
             MouseDown="Spek_MouseDown" MouseUp="Spek_MouseUp"
             MouseEnter="Spek_MouseEnter" MouseLeave="Spek_MouseLeave">
 
+
+
+    <Grid x:Name="LayoutRoot">
         <StackPanel Visibility="{Binding Path=Debug, Converter={Converters:VisibilityConverter}}" Background="Wheat">
             <Grid>
                 <Grid.ColumnDefinitions>
