@@ -4,6 +4,7 @@ using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Markup;
 
+
 namespace MyControlLib.RatingControl_V2
 {
     /// <summary>

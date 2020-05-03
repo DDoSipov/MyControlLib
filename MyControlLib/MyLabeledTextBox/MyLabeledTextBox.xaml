@@ -4,15 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyControlLib"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=local:MyLabeledTextBox, IsDesignTimeCreatable=True}">
     
-    <Grid x:Name="Root">
+    <Grid x:Name="LayoutRoot">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding LabelWidth}"/>
+            <ColumnDefinition Width="{Binding Path=LabelWidth}"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="0" Text="{Binding Label}"/>
-        <TextBox   Grid.Column="1" Text="{Binding Text}"/>
+        <TextBlock Grid.Column="0" Text="{Binding Path=Label}"/>
+        <TextBox   Grid.Column="1" Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

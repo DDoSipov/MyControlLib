@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
+using System.ComponentModel;
+
 namespace MyControlLib
 {
     public partial class MyLabeledTextBox : UserControl
@@ -15,7 +17,7 @@ namespace MyControlLib
             .Register("Text",
                     typeof(string),
                     typeof(MyLabeledTextBox),
-                    new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+                    new FrameworkPropertyMetadata("text", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         public static readonly DependencyProperty LabelWidthProperty = DependencyProperty
             .Register("LabelWidth",
@@ -23,14 +25,11 @@ namespace MyControlLib
                     typeof(MyLabeledTextBox),
                     new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
-
-
-
         
         public MyLabeledTextBox()
         {
             InitializeComponent();
-            Root.DataContext = this;
+            LayoutRoot.DataContext = this;
         }
 
         public string Label
